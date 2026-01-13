@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <math.h>
+int main(){
+	int n,i;
+	float x,d,term,sum;
+	printf("Enter angle");
+	scanf("%f",&x);
+	d=x*(3.14159/180.0);
+	term=1;
+	sum=1;
+	for(i=1;i<4;i++){
+	term=term*(-1)*d*d/(2*i*(2*i-1));
+	sum+=term;}
+	printf("%.2f",sum);
+	printf("%.2f",cos(d));
+}
