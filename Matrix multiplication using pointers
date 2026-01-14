@@ -1,0 +1,30 @@
+#include<stdio.h>
+void main()
+{	
+	int * matmul( int *, int *);
+	int A[3][3], B[3][3], i, j, *d;
+	printf("Input first matrix\n");
+	for(i=0; i<3; i++)
+		for(j=0; j<3; j++)
+			scanf("%d", *(A+i)+j);
+	printf("Input second matrix\n");
+	for(i=0; i<3; i++)
+		for(j=0; j<3; j++)
+			scanf("%d", *(B+i)+j);
+	d=matmul(&A[0][0], &B[0][0]);
+	for(i=0; i<3; i++)
+	{
+		for(j=0; j<3; j++)
+			printf("%d ", *(d+i*3+j));
+		printf("\n");
+	}
+}
+int *matmul(int *A, int *B)
+{
+	static int C[3][3], i, j, k;
+	for(i=0; i<3; i++)
+		for(j=0; j<3; j++)
+			for(k=0; k<3; k++)
+				*(*(C+i)+j)= *(A+i*3+k) * *(B+k*3+j);
+	return(&C[0][0]);
+}
